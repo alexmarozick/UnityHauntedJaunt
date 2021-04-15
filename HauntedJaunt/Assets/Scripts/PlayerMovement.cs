@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
     AudioSource m_AudioSource;
+    public ParticleSystem dust;
 
     void Start ()
     {
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isWalking)
         {
+            CreateDust();
             if (!m_AudioSource.isPlaying)
             {
                 m_AudioSource.Play();
@@ -52,5 +54,9 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation (m_Rotation);
+    }
+
+    void CreateDust(){
+        dust.Play();
     }
 }
