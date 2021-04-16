@@ -30,7 +30,7 @@ public class LightChange : MonoBehaviour
         pos2 = traveling.GetComponent<Transform>().position;
         Vector3 diff = pos2 - pos;
         float level = diff.magnitude;
-        float color1 = 1.0f / 1600f * (level * level);
+        float color1 = 1.0f / 900f * (level * level);
         m_Light.color = Vector4.Lerp(endcolor, startcolor, color1);
     }
 }
